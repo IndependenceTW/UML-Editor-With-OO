@@ -4,12 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ToolBar extends JToolBar{
-    ButtonGroup buttonGroup;
+    private ButtonGroup buttonGroup;
 
     public ToolBar() {
         // Initial Color
         buttonGroup = new ButtonGroup();
-
         //set ToolBar
         setLayout(new GridLayout(6, 1));
         setFloatable(false);
@@ -21,6 +20,9 @@ public class ToolBar extends JToolBar{
         addButton(new JToggleButton(new ImageIcon("icon/composition.png")));
         addButton(new JToggleButton(new ImageIcon("icon/class.png")));
         addButton(new JToggleButton(new ImageIcon("icon/useCase.png")));
+
+        //toggle the first button
+        buttonGroup.setSelected(buttonGroup.getElements().nextElement().getModel(), true);
     }
 
     private void addButton(JToggleButton btn) {

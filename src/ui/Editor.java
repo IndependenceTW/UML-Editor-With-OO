@@ -6,16 +6,15 @@ import java.awt.*;
 public class Editor extends JFrame {
     private final int height = 900;
     private final int width = 1600;
-
-    JMenuBar menuBar;
-    JToolBar toolBar;
-    JPanel canvas;
+    private JMenuBar menuBar;
+    private JToolBar toolBar;
+    private JPanel canvas;
 
     public Editor() {
         //Initial Components
         menuBar = new MenuBar();
         toolBar = new ToolBar();
-        canvas = new JPanel();
+        canvas = Canvas.getInstance();
 
         //Initial Frames
         setLayout(new BorderLayout());
