@@ -10,6 +10,11 @@ public class ClassObject extends Object{
 
     @Override
     public void draw(Graphics2D g) {
+        super.draw(g);
+
+        g.setColor(Color.WHITE);
+        g.fillRect(x, y, width, height);
+        g.setColor(Color.BLACK);
         g.drawRect(x, y, width, height);
         g.drawLine(x, y + height / 3, x + width, y + height / 3);
         g.drawLine(x, y + height * 2 / 3, x + width, y + height * 2 / 3);

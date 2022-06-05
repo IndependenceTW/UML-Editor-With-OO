@@ -1,8 +1,7 @@
 package ui;
 
-import components.ClassObject;
+import components.*;
 import components.Shape;
-import components.UseCase;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,8 +13,12 @@ public class Canvas extends JPanel {
 
     private Canvas() {
         components = new ArrayList<>();
-        components.add(new ClassObject(10,10));
-        components.add(new UseCase(500,500));
+        ClassObject a1 = new ClassObject(10,10);
+        UseCase a2 = new UseCase(500,500);
+        components.add(a1);
+        components.add(a2);
+        components.add(new Generation(a1.ports[1], a2.ports[2]));
+
         //initial canvas
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
 

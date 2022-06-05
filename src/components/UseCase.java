@@ -11,6 +11,11 @@ public class UseCase extends Object{
 
     @Override
     public void draw(Graphics2D g) {
+        super.draw(g);
+
+        g.setColor(Color.WHITE);
+        g.fillOval(x, y, width, height);
+        g.setColor(Color.BLACK);
         g.drawOval(x, y, width, height);
 
         FontMetrics fm = g.getFontMetrics();
