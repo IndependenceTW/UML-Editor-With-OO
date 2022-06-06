@@ -4,7 +4,7 @@ import java.awt.*;
 
 public class Object extends Shape{
     protected String name;
-    public Port[] ports;
+    protected Port[] ports;
 
     protected Object(int x, int y, int width, int height) {
         super(x, y, width, height);
@@ -50,5 +50,24 @@ public class Object extends Shape{
         for (Port port : ports) {
             port.setPosition(port.x + diffX, port.y + diffY);
         }
+    }
+
+    @Override
+    public Port getPort(int x, int y) {
+        int diffX = x - ports[0].getNearX();
+        int diffY = y - ports[0].getNearY();
+        int distanceMin = diffX * diffX + diffY * diffY;
+        int nearPort = 0;
+
+        for(int i = 1; i < 4; i++) {
+            diffX = x - ports[i].getNearX();
+            diffY = y - ports[i].getNearY();
+            int tmpDistance = diffX * diffX + diffY * diffY;
+            if(tmpDistance < distanceMin) {
+                distanceMin = tmpDistance;
+                nearPort = i;
+            }
+        }
+        return ports[nearPort];
     }
 }

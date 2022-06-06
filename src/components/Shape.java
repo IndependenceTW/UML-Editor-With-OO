@@ -23,6 +23,7 @@ public abstract class Shape {
     //percolating up
     public boolean isInRange(int x1, int y1, int x2, int y2){ return false; }
     public boolean isInObject(int x, int y){ return false; }
+    public Port getPort(int x, int y) { return null; }
     public void unGroup(){}
     public void setName(String name){}
 }

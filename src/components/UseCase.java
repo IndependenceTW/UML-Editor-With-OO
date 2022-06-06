@@ -11,7 +11,6 @@ public class UseCase extends Object{
 
     @Override
     public void draw(Graphics2D g) {
-        super.draw(g);
 
         g.setColor(Color.WHITE);
         g.fillOval(x, y, width, height);
@@ -23,5 +22,7 @@ public class UseCase extends Object{
         int nameX = x + (width - (int)r.getWidth()) / 2;
         int nameY = y + (height - (int)r.getHeight()) / 2 + fm.getAscent();
         g.drawString(name, nameX, nameY);
+
+        super.draw(g);
     }
 }

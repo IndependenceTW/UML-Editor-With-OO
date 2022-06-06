@@ -3,7 +3,7 @@ package components;
 import java.awt.*;
 
 public class Port extends Shape{
-    protected enum Position {UP, DOWN, LEFT, RIGHT};
+    protected enum Position {UP, DOWN, LEFT, RIGHT}
     protected final static int SIZE = 8;
     protected Position p;
 
@@ -12,7 +12,7 @@ public class Port extends Shape{
         this.p = p;
     }
 
-    protected int getNearX() {
+    public int getNearX() {
         if(p == Position.UP || p == Position.DOWN) {
             return this.x + SIZE / 2;
         }
@@ -24,7 +24,7 @@ public class Port extends Shape{
         }
     }
 
-    protected int getNearY() {
+    public int getNearY() {
         if(p == Position.LEFT || p == Position.RIGHT) {
             return this.y + SIZE / 2;
         }
@@ -40,7 +40,8 @@ public class Port extends Shape{
     public void draw(Graphics2D g) {
         g.setColor(Color.WHITE);
         g.fillRect(x, y, width, height);
-        g.setColor(Color.BLACK);
+        g.setColor(Color.RED);
         g.drawRect(x, y, width, height);
+        g.setColor(Color.BLACK);
     }
 }

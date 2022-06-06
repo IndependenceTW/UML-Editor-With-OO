@@ -1,10 +1,12 @@
 package ui;
 
+import ui.button.*;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class ToolBar extends JToolBar{
-    private ButtonGroup buttonGroup;
+    private final ButtonGroup buttonGroup;
 
     public ToolBar() {
         // Initial Color
@@ -15,14 +17,12 @@ public class ToolBar extends JToolBar{
 
         //add buttons
         addButton(new JToggleButton(new ImageIcon("icon/select.png")));
-        addButton(new JToggleButton(new ImageIcon("icon/association.png")));
-        addButton(new JToggleButton(new ImageIcon("icon/generalization.png")));
-        addButton(new JToggleButton(new ImageIcon("icon/composition.png")));
-        addButton(new JToggleButton(new ImageIcon("icon/class.png")));
-        addButton(new JToggleButton(new ImageIcon("icon/useCase.png")));
+        addButton(new AssociationButton());
+        addButton(new GeneralizationButton());
+        addButton(new CompositionButton());
+        addButton(new ClassButton());
+        addButton(new UseCaseButton());
 
-        //toggle the first button
-        buttonGroup.setSelected(buttonGroup.getElements().nextElement().getModel(), true);
     }
 
     private void addButton(JToggleButton btn) {
