@@ -31,6 +31,11 @@ public class LineMode extends Mode{
             canvas.repaint();
             return;
         }
+        if(endObject.getPort(e.getX(), e.getY()) == null) {
+            canvas.removeShape(line);
+            canvas.repaint();
+            return;
+        }
 
         line.setEnd(endObject.getPort(e.getX(), e.getY()));
         canvas.repaint();

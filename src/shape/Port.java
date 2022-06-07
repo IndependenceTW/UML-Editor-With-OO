@@ -25,10 +25,10 @@ public class Port extends Shape{
         y1 = y;
     }
 
-    public void move(int diffX, int diffY) {
-        setPosition(x1 + diffX, y1 + diffY);
-        nearX += diffX;
-        nearY += diffY;
+    public void move(int x, int y) {
+        super.move(x, y);
+        nearX += x;
+        nearY += y;
     }
 
     public int getNearX() {

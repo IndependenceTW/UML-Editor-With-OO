@@ -6,12 +6,15 @@ public abstract class Object extends Shape{
     protected int HEIGHT;
     protected int WIDTH;
     protected Port[] ports = new Port[4];
+    protected String name = "object";
 
     //Constructor
     public Object(int x, int y, int w, int h) {
         super(x, y);
         HEIGHT = h;
         WIDTH = w;
+        x2 = x + w;
+        y2 = y + h;
         setPort();
     }
 
@@ -22,6 +25,8 @@ public abstract class Object extends Shape{
         }
         x1 = x;
         y1 = y;
+        x2 = x + WIDTH;
+        y2 = y + HEIGHT;
     }
 
     @Override
@@ -78,5 +83,14 @@ public abstract class Object extends Shape{
             }
         }
         return ports[near];
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 }

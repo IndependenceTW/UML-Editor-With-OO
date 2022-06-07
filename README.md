@@ -3,19 +3,19 @@ For final Project, and more OO
 
 ## Basic Feature
 - [x] editor of the UML Editor
-- [ ] Object Creation
-- [ ] Connection Line Creation
-- [ ] Show the Port
-- [ ] Object Selection
+- [x] Object Creation
+- [x] Connection Line Creation
+- [x] Show the Port
+- [x] Object Selection
   - Single Object
   - Multi Objects
-- [ ] Objects Group and Ungroup
-- [ ] Move Objects
-- [ ] Rename Objects
+- [x] Objects Group and Ungroup
+- [x] Move Objects
+- [x] Rename Objects
 
 ## Bonus Feature(More User-friendly)
-- [ ] Show the Selection Range on Mouse Dragged
-- [ ] Move the Object Animation
+- [x] Show the Selection Range on Mouse Dragged
+- [x] Move the Object Animation
 
 ## UML
 ### Class Diagram ver 1.0

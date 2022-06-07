@@ -18,17 +18,13 @@ public class Line extends Shape{
 
     @Override
     public void draw(Graphics2D g) {
-        int x1 = begin.getNearX();
-        int y1 = begin.getNearY();
-        int x2, y2;
-        if(end == null) {
-            x2 = this.x2;
-            y2 = this.y2;
-        }
-        else {
+        x1 = begin.getNearX();
+        y1 = begin.getNearY();
+        if(end != null) {
             x2 = end.getNearX();
             y2 = end.getNearY();
         }
+
 
         g.drawLine(x1, y1, x2, y2);
         drawArrow(g, x1, y1, x2, y2);
@@ -41,9 +37,13 @@ public class Line extends Shape{
     }
 
     public void setEnd(Port end) {
+        x2 = end.getNearX();
+        y2 = end.getNearY();
         this.end = end;
     }
     public void setStart(Port begin) {
+        x1 = begin.getNearX();
+        y1 = begin.getNearY();
         this.begin = begin;
     }
 }

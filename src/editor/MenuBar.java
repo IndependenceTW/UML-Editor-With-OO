@@ -1,5 +1,9 @@
 package editor;
 
+import editor.menuItem.GroupItem;
+import editor.menuItem.RenameItem;
+import editor.menuItem.UnGroupItem;
+
 import javax.swing.*;
 
 public class MenuBar extends JMenuBar {
@@ -14,9 +18,9 @@ public class MenuBar extends JMenuBar {
 
         // add menu item and item listener
         // Change to custom menu item
-        edit.add(new JMenuItem("Group"));
-        edit.add(new JMenuItem("Ungroup"));
-        edit.add(new JMenuItem("Rename"));
+        edit.add(new GroupItem());
+        edit.add(new UnGroupItem());
+        edit.add(new RenameItem());
         file.add(new JMenuItem("Exit"));
 
         // add menu to menu bar
