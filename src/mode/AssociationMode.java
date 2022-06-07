@@ -1,10 +1,17 @@
 package mode;
 
-import components.Association;
+import shape.Association;
+
+import java.awt.event.MouseEvent;
 
 public class AssociationMode extends LineMode{
     @Override
-    protected void addLine() {
-        canvas.add(new Association(begin, end));
+    public void onMousePressed(MouseEvent e) {
+        line = createLine(e.getX(), e.getY(), new Association());
+
+        if(line != null) {
+            canvas.addShape(line);
+            canvas.repaint();
+        }
     }
 }

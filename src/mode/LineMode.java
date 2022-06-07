@@ -1,47 +1,61 @@
 package mode;
 
-import components.Association;
-import components.Port;
-import components.Shape;
+import shape.Line;
+import shape.Port;
+import shape.Shape;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public abstract class LineMode extends Mode{
-    protected Port begin = null;
-    protected Port end = null;
-
+public class LineMode extends Mode{
+    Line line;
+    Shape beginShape;
     @Override
-    public void onPressed(MouseEvent e) {
-        Shape object = canvas.getClickObject(e.getX(), e.getY());
-        begin = object.getPort(e.getX(), e.getY());
+    public void onMousePressed(MouseEvent e) {
+        line = createLine(e.getX(), e.getY(), new Line());
+
+        if(line != null) {
+            canvas.addShape(line);
+            canvas.repaint();
+        }
     }
 
     @Override
-    public void onDragged(MouseEvent e) {
-        if(begin == null) {
+    public void onMouseReleased(MouseEvent e) {
+        if(line == null) {
             return;
         }
+
+        Shape endObject = canvas.getPointObject(e.getX(), e.getY());
+        if(endObject == null || endObject == beginShape) {
+            canvas.removeShape(line);
+            canvas.repaint();
+            return;
+        }
+
+        line.setEnd(endObject.getPort(e.getX(), e.getY()));
         canvas.repaint();
-        Graphics2D g = (Graphics2D) canvas.getGraphics();
-        g.drawLine(begin.getNearX(), begin.getNearY(), e.getX(), e.getY());
     }
 
     @Override
-    public void onReleased(MouseEvent e) {
-        if(begin == null) {
-            return;
+    public void onMouseDragged(MouseEvent e) {
+        if(line != null) {
+            line.setPosition(e.getX(), e.getY());
+            canvas.repaint();
         }
-        Shape object = canvas.getClickObject(e.getX(), e.getY());
-        if(object == null) {
-            begin = null;
-            return;
-        }
-        end = object.getPort(e.getX(), e.getY());
-        addLine();
-        begin = null;
-        end = null;
     }
 
-    protected abstract void addLine();
+    protected Line createLine(int x, int y, Line creation) {
+        Shape beginShape = canvas.getPointObject(x, y);
+        if(beginShape == null) {
+            return null;
+        }
+        Port beginPort = beginShape.getPort(x, y);
+        if(beginPort == null) {
+            return null;
+        }
+        creation.setStart(beginPort);
+        creation.setPosition(x, y);
+        this.beginShape = beginShape;
+        return creation;
+    }
 }

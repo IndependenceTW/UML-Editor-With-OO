@@ -1,11 +1,17 @@
 package mode;
 
-import components.Association;
-import components.Generalization;
+import shape.Generalization;
+
+import java.awt.event.MouseEvent;
 
 public class GeneralizationMode extends LineMode{
     @Override
-    protected void addLine() {
-        canvas.add(new Generalization(begin, end));
+    public void onMousePressed(MouseEvent e) {
+        line = createLine(e.getX(), e.getY(), new Generalization());
+
+        if(line != null) {
+            canvas.addShape(line);
+            canvas.repaint();
+        }
     }
 }

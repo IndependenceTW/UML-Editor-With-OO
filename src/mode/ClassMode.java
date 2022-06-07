@@ -1,24 +1,25 @@
 package mode;
 
-import components.ClassObject;
+import shape.ClassObject;
+import shape.Object;
 
 import java.awt.event.MouseEvent;
 
 public class ClassMode extends Mode{
 
     @Override
-    public void onPressed(MouseEvent e) {
-        canvas.add(new ClassObject(e.getX(), e.getY()));
+    public void onMousePressed(MouseEvent e) {
+        canvas.addShape(new ClassObject(e.getX(), e.getY()));
+        canvas.repaint();
     }
 
     @Override
-    public void onDragged(MouseEvent e) {
+    public void onMouseReleased(MouseEvent e) {
 
     }
 
     @Override
-    public void onReleased(MouseEvent e) {
+    public void onMouseDragged(MouseEvent e) {
 
     }
 }
-

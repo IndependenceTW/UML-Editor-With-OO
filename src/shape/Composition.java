@@ -1,14 +1,10 @@
-package components;
+package shape;
 
 import java.awt.*;
 
 public class Composition extends Line{
-    public Composition(Port from, Port to) {
-        super(from, to);
-    }
-
     @Override
-    public void drawArrow(Graphics2D g, int x1, int y1, int x2, int y2) {
+    protected void drawArrow(Graphics2D g, int x1, int y1, int x2, int y2) {
         int dx = x2 - x1;
         int dy = y2 - y1;
 

@@ -1,14 +1,10 @@
-package components;
+package shape;
 
 import java.awt.*;
 
-public class Generalization extends Line{
-    public Generalization(Port from, Port to) {
-        super(from, to);
-    }
-
+public class Association extends Line{
     @Override
-    public void drawArrow(Graphics2D g, int x1, int y1, int x2, int y2) {
+    protected void drawArrow(Graphics2D g, int x1, int y1, int x2, int y2) {
         int dx = x2 - x1;
         int dy = y2 - y1;
 
@@ -31,12 +27,7 @@ public class Generalization extends Line{
         arrowRightY = arrowRightX * sin + arrowRightY * cos + y1;
         arrowRightX = x;
 
-        int[] xPoints = {x2, (int)arrowLeftX, (int)arrowRightX};
-        int[] yPoints = {y2, (int)arrowLeftY, (int)arrowRightY};
-
-        g.setColor(Color.white);
-        g.fillPolygon(xPoints, yPoints, 3);
-        g.setColor(Color.BLACK);
-        g.drawPolygon(xPoints, yPoints, 3);
+        g.drawLine(x2, y2, (int)arrowLeftX, (int)arrowLeftY);
+        g.drawLine(x2, y2, (int)arrowRightX, (int)arrowRightY);
     }
 }

@@ -1,16 +1,12 @@
 package mode;
 
-import ui.Canvas;
+import editor.Canvas;
 
 import java.awt.event.MouseEvent;
 
 public abstract class Mode {
-    protected Canvas canvas;
-    public Mode(){
-        canvas = Canvas.getInstance();
-    }
-
-    abstract public void onPressed(MouseEvent e);
-    abstract public void onDragged(MouseEvent e);
-    abstract public void onReleased(MouseEvent e);
+    protected Canvas canvas = Canvas.getInstance();
+    public abstract void onMousePressed(MouseEvent e) ;
+    public abstract void onMouseReleased(MouseEvent e) ;
+    public abstract void onMouseDragged(MouseEvent e) ;
 }

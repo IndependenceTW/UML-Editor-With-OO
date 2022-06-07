@@ -1,24 +1,23 @@
 package mode;
 
-import components.UseCase;
+import shape.UseCase;
 
 import java.awt.event.MouseEvent;
 
 public class UseCaseMode extends Mode{
-
     @Override
-    public void onPressed(MouseEvent e) {
-        canvas.add(new UseCase(e.getX(), e.getY()));
+    public void onMousePressed(MouseEvent e) {
+        canvas.addShape(new UseCase(e.getX(), e.getY()));
+        canvas.repaint();
     }
 
     @Override
-    public void onDragged(MouseEvent e) {
+    public void onMouseReleased(MouseEvent e) {
 
     }
 
     @Override
-    public void onReleased(MouseEvent e) {
+    public void onMouseDragged(MouseEvent e) {
 
     }
 }
-

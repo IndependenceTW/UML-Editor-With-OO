@@ -1,11 +1,11 @@
-package ui;
+package editor;
 
 import javax.swing.*;
 
 public class MenuBar extends JMenuBar {
     // Components
-    private JMenu file;
-    private JMenu edit;
+    private final JMenu file;
+    private final JMenu edit;
 
     public MenuBar() {
         // Initial Components
@@ -13,6 +13,7 @@ public class MenuBar extends JMenuBar {
         edit = new JMenu("Edit");
 
         // add menu item and item listener
+        // Change to custom menu item
         edit.add(new JMenuItem("Group"));
         edit.add(new JMenuItem("Ungroup"));
         edit.add(new JMenuItem("Rename"));

@@ -2,7 +2,7 @@
 For final Project, and more OO
 
 ## Basic Feature
-- [x] ui of the UML Editor
+- [x] editor of the UML Editor
 - [ ] Object Creation
 - [ ] Connection Line Creation
 - [ ] Show the Port

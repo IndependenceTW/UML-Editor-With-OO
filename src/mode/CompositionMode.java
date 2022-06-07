@@ -1,10 +1,17 @@
 package mode;
 
-import components.Composition;
+import shape.Composition;
+
+import java.awt.event.MouseEvent;
 
 public class CompositionMode extends LineMode{
     @Override
-    protected void addLine() {
-        canvas.add(new Composition(begin, end));
+    public void onMousePressed(MouseEvent e) {
+        line = createLine(e.getX(), e.getY(), new Composition());
+
+        if(line != null) {
+            canvas.addShape(line);
+            canvas.repaint();
+        }
     }
 }

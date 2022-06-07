@@ -1,4 +1,4 @@
-package ui;
+package editor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,16 +6,11 @@ import java.awt.*;
 public class Editor extends JFrame {
     private final int height = 900;
     private final int width = 1600;
-    private JMenuBar menuBar;
-    private JToolBar toolBar;
-    private JPanel canvas;
+    private final JMenuBar menuBar = new MenuBar();
+    private final JToolBar toolBar = new ToolBar();
+    private final JPanel canvas = Canvas.getInstance();;
 
     public Editor() {
-        //Initial Components
-        menuBar = new MenuBar();
-        toolBar = new ToolBar();
-        canvas = Canvas.getInstance();
-
         //Initial Frames
         setLayout(new BorderLayout());
         setTitle("UML Editor");
@@ -26,5 +21,8 @@ public class Editor extends JFrame {
         add(toolBar, BorderLayout.WEST);
         add(canvas, BorderLayout.CENTER);
         setJMenuBar(menuBar);
+
+        //show
+        setVisible(true);
     }
 }
